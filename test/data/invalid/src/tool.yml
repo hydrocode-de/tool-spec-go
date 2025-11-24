@@ -1,0 +1,36 @@
+tools:
+  foobar:
+    title: Foo Bar
+    description: A dummy tool to exemplify the YAML file
+    version: 0.1
+    parameters:
+      foo_int:
+        type: integer
+        min: 10
+        max: 100
+      foo_float:
+        type: float
+        min: 0.5
+        max: 99.9
+      foo_string:
+        type: string
+      foo_enum:
+        type: enum
+        values:
+          - foo
+          - bar
+          - baz
+      foo_array:
+        type: integer
+        array: true
+      optional_param:
+        type: string
+        optional: true
+    data:
+      foo_matrix:
+        extension: dat
+        description: A matrix file that can be read by numpy
+      foo_csv:
+        extension: csv
+        description: A standard formatted CSV file, for autoloading using pandas
+

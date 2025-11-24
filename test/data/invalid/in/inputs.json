@@ -1,0 +1,19 @@
+{
+    "foobar": {
+        "parameters": {
+            "foo_int": 5.7,
+            "foo_float": 150.0,
+            "foo_string": 12345,
+            "foo_enum": "invalid_enum_value",
+            "foo_array": [34, 55.5, 23, 43, 23],
+            "extra_param": "not in spec",
+            "optional_param": "this is fine"
+        },
+        "data": {
+            "foo_matrix": "/in/foo_matrix.txt",
+            "foo_csv": "/in/foo_csv.csv",
+            "extra_data": "/in/extra.txt"
+        }
+    }
+}
+
