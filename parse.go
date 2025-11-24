@@ -22,6 +22,14 @@ func LoadToolSpec(rawData []byte) (SpecFile, error) {
 		return SpecFile{}, err
 	}
 
+	for toolName, tool := range toolSpec.Tools {
+		tool.Name = toolName
+		for paramName, param := range tool.Parameters {
+			param.Name = paramName
+			tool.Parameters[paramName] = param
+		}
+		toolSpec.Tools[toolName] = tool
+	}
+
 	return toolSpec, nil
 }
-

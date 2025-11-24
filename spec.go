@@ -26,8 +26,8 @@ type ParameterSpec struct {
 	IsArray     bool        `json:"array,omitempty" yaml:"array,omitempty" default:"false"`
 	Default     interface{} `json:"default,omitempty" yaml:"default,omitempty"`
 	Values      []string    `json:"values,omitempty" yaml:"values,omitempty"`
-	Min         float64     `json:"min,omitempty" yaml:"min,omitempty"`
-	Max         float64     `json:"max,omitempty" yaml:"max,omitempty"`
+	Min         *float64    `json:"min,omitempty" yaml:"min,omitempty"`
+	Max         *float64    `json:"max,omitempty" yaml:"max,omitempty"`
 	Optional    bool        `json:"optional,omitempty" yaml:"optional,omitempty"`
 }
 
@@ -61,4 +61,3 @@ func (d *DataSpec) UnmarshalYAML(value *yaml.Node) error {
 	d.Extension = nil
 	return nil
 }
-
