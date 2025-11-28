@@ -38,8 +38,8 @@ func (e *ValidationError) Error() string {
 	return fmt.Sprintf("%s: %s (expected %s, got %s)", e.Name, e.Message, e.Expected, e.Actual)
 }
 
-func ValidateInputs(spec toolspec.ToolSpec, inputs toolspec.ToolInput) (bool, []error) {
-	var errors []error = make([]error, 0)
+func ValidateInputs(spec toolspec.ToolSpec, inputs toolspec.ToolInput) (bool, []*ValidationError) {
+	var errors []*ValidationError = make([]*ValidationError, 0)
 
 	didError, errs := ValidateParameters(spec, inputs.Parameters, false)
 	if didError {

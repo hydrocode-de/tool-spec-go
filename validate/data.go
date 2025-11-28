@@ -9,8 +9,8 @@ import (
 	toolspec "github.com/hydrocode-de/tool-spec-go"
 )
 
-func ValidateData(spec toolspec.ToolSpec, data map[string]string) (bool, []error) {
-	var errors []error = make([]error, 0)
+func ValidateData(spec toolspec.ToolSpec, data map[string]string) (bool, []*ValidationError) {
+	var errors []*ValidationError = make([]*ValidationError, 0)
 
 	for name, dataSpec := range spec.Data {
 		if _, ok := data[name]; !ok {

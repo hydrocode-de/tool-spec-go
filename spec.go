@@ -14,6 +14,7 @@ type ToolSpec struct {
 	Name        string                   `json:"name" yaml:"-"`
 	Title       string                   `json:"title" yaml:"title"`
 	Description string                   `json:"description" yaml:"description"`
+	Command     string                   `json:"command,omitempty" yaml:"command,omitempty"`
 	Parameters  map[string]ParameterSpec `json:"parameters,omitempty" yaml:"parameters,omitempty"`
 	Data        map[string]DataSpec      `json:"data,omitempty" yaml:"data,omitempty"`
 	Citation    cff.Cff                  `json:"citation,omitempty" yaml:"-"`

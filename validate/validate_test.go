@@ -108,10 +108,8 @@ func TestValidateInvalidConfig(t *testing.T) {
 	errorTypes := make(map[ErrorType]bool)
 	errorNames := make(map[string]bool)
 	for _, err := range errors {
-		if validationErr, ok := err.(*ValidationError); ok {
-			errorTypes[validationErr.Type] = true
-			errorNames[validationErr.Name] = true
-		}
+		errorTypes[err.Type] = true
+		errorNames[err.Name] = true
 	}
 
 	// Verify we have multiple types of errors
@@ -146,10 +144,8 @@ func TestValidateInvalidConfig(t *testing.T) {
 	}
 
 	for _, err := range errors {
-		if validationErr, ok := err.(*ValidationError); ok {
-			if _, exists := expectedErrors[validationErr.Name]; exists {
-				expectedErrors[validationErr.Name] = true
-			}
+		if _, exists := expectedErrors[err.Name]; exists {
+			expectedErrors[err.Name] = true
 		}
 	}
 

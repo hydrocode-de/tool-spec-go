@@ -9,8 +9,8 @@ import (
 	toolspec "github.com/hydrocode-de/tool-spec-go"
 )
 
-func ValidateParameters(spec toolspec.ToolSpec, inputs map[string]interface{}, failOnExtra bool) (bool, []error) {
-	var errors []error = make([]error, 0)
+func ValidateParameters(spec toolspec.ToolSpec, inputs map[string]interface{}, failOnExtra bool) (bool, []*ValidationError) {
+	var errors []*ValidationError = make([]*ValidationError, 0)
 
 	// check for everything in the inputs map
 	for name, value := range inputs {
@@ -56,7 +56,7 @@ func ValidateParameters(spec toolspec.ToolSpec, inputs map[string]interface{}, f
 	return false, nil
 }
 
-func ValidateParameter(spec toolspec.ParameterSpec, value interface{}) error {
+func ValidateParameter(spec toolspec.ParameterSpec, value interface{}) *ValidationError {
 	// in case the value is marked as an array, we first check and then validate recursively
 	if spec.IsArray {
 		if _, ok := value.([]interface{}); !ok {
